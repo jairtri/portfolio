@@ -3,151 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jair Trillo — Portafolio Artístico & Blog</title>
-    <!-- Usamos la versión oficial CSS de Tailwind para evitar bloqueos del servidor de GitHub -->
+    <title>Jair Trillo — Espacio Expositivo Independiente</title>
+    <!-- Cargamos la infraestructura de diseño oficial -->
     <link href="https://cloudflare.com" rel="stylesheet">
     <style>
-        /* Estilos personalizados nativos para asegurar el Modo Oscuro y los efectos Glassmorphism */
-        body { background-color: #0b0f19; color: #e2e8f0; }
-        .bento-card { background-color: #0f172a; border: 1px solid #1e293b; transition: all 0.3s ease-in-out; }
-        .bento-card:hover { border-color: #8b5cf6; box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.15); }
-        .glass-nav { background-color: rgba(11, 15, 25, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        /* ESTÉTICA MAESTRA - NEGRO ABSOLUTO Y MINIMALISMO RADICAL */
+        html { scroll-behavior: smooth; }
+        body { background-color: #000000; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; overflow-x: hidden; }
+        
+        /* Tipografías de Impacto */
+        .text-huge { font-size: clamp(2.5rem, 8vw, 6.5rem); line-height: 0.9; font-weight: 900; letter-spacing: -0.04em; }
+        
+        /* Tarjetas de Diseño y Efecto Cristal */
+        .glass-panel { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .art-card { background: #0a0a0a; border: 1px solid #141414; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        .art-card:hover { border-color: rgba(255, 255, 255, 0.3); transform: translateY(-4px); }
+        
+        /* Líneas de Guía Estéticas */
+        .grid-line { border-color: rgba(255, 255, 255, 0.05); }
+        
+        /* Elementos que bloquean la copia de imágenes */
+        .protected-img { -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -o-user-select: none; user-select: none; pointer-events: none; }
     </style>
 </head>
-<body class="min-h-screen selection:bg-purple-500 selection:text-white">
+<body class="antialiased">
 
-    <!-- MENÚ DE NAVEGACIÓN -->
-    <nav class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center border-b border-gray-800 sticky top-0 glass-nav z-50">
-        <div class="text-xl font-black tracking-wider text-purple-400">🎨 JAIR TRILLO</div>
-        <div class="space-x-6 text-sm font-medium text-gray-400">
-            <a href="#galeria-obras" class="hover:text-purple-400 transition">Galería</a>
-            <a href="#adquisiciones" class="hover:text-purple-400 transition">Tienda</a>
-            <a href="#sobre-mi" class="hover:text-purple-400 transition">Sobre Mí</a>
-            <a href="#blog" class="hover:text-purple-400 transition">Blog</a>
+    <!-- MENÚ INTEGRADO AL ENTORNO (Se adapta a móvil y laptop solo) -->
+    <nav class="w-full fixed top-0 left-0 z-50 border-b grid-line glass-panel">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="#" class="font-black tracking-widest text-sm uppercase text-white hover:opacity-80 transition">JAIR TRILLO</a>
+            <div class="flex space-x-8 text-xs font-semibold uppercase tracking-wider text-gray-400">
+                <a href="#exposicion" class="hover:text-white transition">Exposición</a>
+                <a href="#encargos" class="hover:text-white transition">Encargos</a>
+                <a href="#manifiesto" class="hover:text-white transition">Manifiesto</a>
+                <a href="#bitacora" class="hover:text-white transition">Bitácora</a>
+            </div>
         </div>
     </nav>
 
-    <!-- CABECERA -->
-    <header class="max-w-4xl mx-auto text-center py-20 px-6">
-        <span class="text-xs font-bold tracking-widest text-pink-400 uppercase bg-pink-500 bg-opacity-10 px-3 py-1 rounded-full border border-pink-500 border-opacity-20">Arte Original & Procesos</span>
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mt-6 text-white">
-            Explorando el arte a través de mis ojos
+    <!-- INTRODUCCIÓN MONUMENTAL (Obra de Arte por sí sola) -->
+    <header class="min-h-screen flex flex-col justify-center px-6 max-w-7xl mx-auto pt-20">
+        <p class="text-xs uppercase tracking-widest text-gray-500 mb-6 font-mono">// Espacio Expositivo Digital 2026</p>
+        <h1 class="text-huge text-white">
+            CREAR ES UN<br>ACTO DE REBELIÓN.
         </h1>
-        <p class="mt-6 text-lg text-gray-400 max-w-xl mx-auto">
-            Bienvenido a mi espacio conceptual. Un rincón digital diseñado para albergar las colecciones visuales de Jair Trillo y mis reflexiones sobre el proceso creativo.
+        <p class="mt-8 text-lg md:text-xl text-gray-400 max-w-xl font-light leading-relaxed">
+            Bienvenido al archivo visual de Jair Trillo. Un portafolio conceptual diseñado para albergar colecciones artísticas y desglosar el proceso detrás del lienzo.
         </p>
+        <div class="mt-12 flex space-x-6">
+            <a href="#exposicion" class="bg-white text-black font-semibold text-xs uppercase tracking-wider px-6 py-4 rounded-none hover:bg-gray-200 transition">Explorar Obras</a>
+            <a href="#encargos" class="border border-gray-700 text-white font-semibold text-xs uppercase tracking-wider px-6 py-4 rounded-none hover:bg-white hover:text-black transition">Adquirir / Encargos</a>
+        </div>
     </header>
 
-    <!-- SECCIÓN: GALERÍA DE OBRAS INDEPENDIENTE -->
-    <section id="galeria-obras" class="max-w-6xl mx-auto px-6 py-12 border-t border-gray-900">
-        <div class="mb-8">
-            <h2 class="text-3xl font-bold tracking-tight text-white"><span class="text-pink-400">01.</span> Exposición Digital</h2>
-            <p class="text-gray-400 text-sm mt-1">Una muestra puramente estética de mis piezas favoritas y proyectos recientes.</p>
+    <!-- SECCIÓN 01: EXPOSICIÓN DIGITAL ASIMÉTRICA -->
+    <section id="exposicion" class="py-32 px-6 max-w-7xl mx-auto border-t grid-line">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-4">
+            <div>
+                <p class="text-xs font-mono text-gray-500 uppercase tracking-widest">01 / Curaduría</p>
+                <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mt-2">PIEZAS SELECCIONADAS</h2>
+            </div>
+            <p class="text-gray-400 text-sm max-w-xs font-light">Muestra visual pura. Los contenedores están listos para proyectar tus imágenes mediante enlaces externos sin alterar el diseño.</p>
         </div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <!-- Obra 1 -->
-            <div class="bento-card rounded-2xl overflow-hidden">
-                <div class="aspect-w-3 aspect-h-4 bg-gray-800 h-64 flex items-center justify-center text-gray-500 text-xs font-mono">
-                    [Remplaza con URL de tu Foto 1]
+
+        <!-- Galería Asimétrica Inteligente (Cambia sola según la pantalla) -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+            
+            <!-- Obra Principal (Ocupa mucho espacio en Laptop, se compacta en celular) -->
+            <div class="md:col-span-8 art-card p-4 flex flex-col justify-between group">
+                <div class="w-full bg-[#111] aspect-video flex items-center justify-center text-gray-600 text-xs font-mono overflow-hidden relative">
+                    <!-- Aquí irá tu imagen -->
+                    <span class="group-hover:scale-105 transition-transform duration-700 protected-img text-center p-4">[ Espacio reservado para tu Imagen Principal .jpg / .png ]</span>
                 </div>
-                <div class="p-4">
-                    <h4 class="font-bold text-base text-white">Obra Destacada I</h4>
-                    <p class="text-gray-400 text-xs mt-1">Jair Trillo — 2026</p>
-                </div>
-            </div>
-            <!-- Obra 2 -->
-            <div class="bento-card rounded-2xl overflow-hidden">
-                <div class="aspect-w-3 aspect-h-4 bg-gray-800 h-64 flex items-center justify-center text-gray-500 text-xs font-mono">
-                    [Remplaza con URL de tu Foto 2]
-                </div>
-                <div class="p-4">
-                    <h4 class="font-bold text-base text-white">Obra Destacada II</h4>
-                    <p class="text-gray-400 text-xs mt-1">Jair Trillo — 2026</p>
+                <div class="mt-6 flex justify-between items-end">
+                    <div>
+                        <h3 class="text-lg font-bold text-white tracking-tight">Estudio Conceptual I</h3>
+                        <p class="text-xs text-gray-500 font-mono mt-1">Técnica Seleccionada — 2026</p>
+                    </div>
                 </div>
             </div>
-            <!-- Obra 3 -->
-            <div class="bento-card rounded-2xl overflow-hidden">
-                <div class="aspect-w-3 aspect-h-4 bg-gray-800 h-64 flex items-center justify-center text-gray-500 text-xs font-mono">
-                    [Remplaza con URL de tu Foto 3]
+
+            <!-- Obra Secundaria Vertical (Se adapta sola) -->
+            <div class="md:col-span-4 art-card p-4 flex flex-col justify-between group">
+                <div class="w-full bg-[#111] aspect-[3/4] flex items-center justify-center text-gray-600 text-xs font-mono overflow-hidden">
+                    <span class="group-hover:scale-105 transition-transform duration-700 protected-img text-center p-4">[ Imagen Vertical .jpg ]</span>
                 </div>
-                <div class="p-4">
-                    <h4 class="font-bold text-base text-white">Obra Destacada III</h4>
-                    <p class="text-gray-400 text-xs mt-1">Jair Trillo — 2026</p>
+                <div class="mt-6">
+                    <h3 class="text-sm font-bold text-white uppercase tracking-wider">Estudio de Composición II</h3>
+                    <p class="text-xs text-gray-500 font-mono mt-1">Archivo de Taller</p>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- SECCIÓN BENTO GRID: ADQUISICIONES & MONETIZACIÓN -->
-    <section id="adquisiciones" class="max-w-5xl mx-auto px-6 py-12 border-t border-gray-900">
-        <h2 class="text-3xl font-bold mb-8 tracking-tight text-white"><span class="text-purple-400">02.</span> Adquisiciones & Servicios</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Bloque Lateral (WhatsApp) -->
-            <div class="bento-card p-6 rounded-2xl flex flex-col justify-between" style="background: linear-gradient(to bottom, #0f172a, #1e1b4b);">
+    <!-- SECCIÓN 02: ADQUISICIONES Y ENCARGOS MONETIZABLES -->
+    <section id="encargos" class="py-32 px-6 max-w-7xl mx-auto border-t grid-line">
+        <p class="text-xs font-mono text-gray-500 uppercase tracking-widest mb-2">02 / Economía Creativa</p>
+        <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-16">ADQUISICIONES & ENCARGOS</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Bloque Monetización Directa (WhatsApp) -->
+            <div class="art-card p-8 flex flex-col justify-between" style="border-left: 3px solid #ffffff;">
                 <div>
-                    <div class="text-3xl mb-4">✨</div>
-                    <h3 class="text-xl font-bold text-purple-300">Comisiones Personalizadas</h3>
-                    <p class="text-gray-400 text-sm mt-2">Abro cupos limitados al mes para proyectos comerciales o piezas exclusivas adaptadas a tu idea.</p>
+                    <h3 class="text-xl font-bold text-white tracking-tight">Proyectos a Medida (Comisiones)</h3>
+                    <p class="text-gray-400 text-sm mt-4 font-light leading-relaxed">
+                        Abro convocatorias limitadas para desarrollar piezas exclusivas, portadas conceptuales, colaboraciones con marcas o dirección artística bajo tu concepto original.
+                    </p>
                 </div>
-                <a href="https://wa.me" target="_blank" class="mt-6 w-full text-center bg-purple-600 hover:bg-purple-500 text-white font-medium py-2.5 rounded-xl transition text-sm">
-                    Cotizar por WhatsApp
+                <!-- Recuerda cambiar el número 5210000000000 por el tuyo en el futuro -->
+                <a href="https://wa.me" target="_blank" class="mt-12 inline-block text-center bg-white text-black font-bold text-xs uppercase tracking-widest py-4 hover:bg-gray-200 transition">
+                    Iniciar Consulta por WhatsApp →
                 </a>
             </div>
 
-            <!-- Bloque Grande (Catálogo) -->
-            <div class="md:col-span-2 bento-card p-6 rounded-2xl flex flex-col justify-between">
+            <!-- Bloque Catálogo Físico -->
+            <div class="art-card p-8 flex flex-col justify-between">
                 <div>
-                    <div class="text-3xl mb-3">🖼️</div>
-                    <h3 class="text-xl font-bold text-white">Adquirir Piezas Originales</h3>
-                    <p class="text-gray-400 text-sm mt-2">Si estás interesado en adquirir colecciones físicas o digitales originales de mi autoría, puedes solicitar el catálogo de disponibilidad actual.</p>
+                    <h3 class="text-xl font-bold text-white tracking-tight">Catálogo de Piezas Originales</h3>
+                    <p class="text-gray-400 text-sm mt-4 font-light leading-relaxed">
+                        Si deseas coleccionar alguna de las piezas físicas disponibles en el taller o solicitar láminas seriadas firmadas con envíos internacionales certificados, puedes ponerte en contacto directo.
+                    </p>
                 </div>
-                <div class="mt-6 flex flex-wrap justify-between items-center gap-4">
-                    <span class="text-xs text-gray-500">Catálogo disponible en formato PDF</span>
-                    <a href="#contacto" class="bg-gray-850 hover:bg-gray-800 border border-gray-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition">Pedir Catálogo por Correo</a>
-                </div>
+                <a href="mailto:tu-correo@ejemplo.com" class="mt-12 inline-block text-center border border-gray-700 text-white font-bold text-xs uppercase tracking-widest py-4 hover:border-white transition">
+                    Solicitar Catálogo en PDF
+                </a>
             </div>
+
         </div>
     </section>
 
-    <!-- SECCIÓN SOBRE MÍ -->
-    <section id="sobre-mi" class="border-y border-gray-900 py-20 px-6" style="background-color: rgba(15, 23, 42, 0.3);">
-        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div class="aspect-w-1 aspect-h-1 bg-gradient-to-tr from-purple-600 to-pink-600 rounded-2xl p-0.5 shadow-xl">
-                <div class="w-full h-64 bg-gray-900 rounded-xl flex items-center justify-center text-gray-500 font-mono">
-                    [Tu Foto Trabajando]
-                </div>
-            </div>
-            <div>
-                <h2 class="text-3xl font-bold tracking-tight text-white"><span class="text-pink-400">03.</span> Detrás del Lienzo</h2>
-                <p class="mt-6 text-gray-400 leading-relaxed text-sm">
-                    Hola, soy <strong class="text-white">Jair Trillo</strong>. Mi enfoque artístico busca conectar emociones complejas a través de un lenguaje visual propio. Decidí abrir esta página para centralizar mi trabajo de manera independiente y sin intermediarios.
-                </p>
-                <p class="mt-4 text-gray-400 leading-relaxed text-sm">
-                    Creo firmemente que detrás de cada obra hay una historia indispensable, por lo que uso este espacio no solo para exhibir, sino para desglosar mis procesos creativos en el blog de abajo.
-                </p>
-            </div>
+    <!-- SECCIÓN 03: MANIFIESTO (Gana Carisma de forma automática) -->
+    <section id="manifiesto" class="py-32 px-6 bg-[#050505] border-t grid-line">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-xs font-mono text-gray-500 uppercase tracking-widest mb-6">03 / Filosofía</p>
+            <h2 class="text-2xl md:text-4xl font-extrabold tracking-tight text-white mb-8 leading-snug">
+                "El arte no responde ante nadie. Existe para documentar las verdades que las palabras no pueden sostener."
+            </h2>
+            <div class="w-12 h-0.5 bg-white mx-auto mb-8"></div>
+            <p class="text-gray-400 text-sm font-light max-w-xl mx-auto leading-relaxed">
+                Soy <span class="text-white font-medium">Jair Trillo</span>. Mi enfoque conceptual busca disolver las barreras comerciales tradicionales para construir una relación directa, transparente y cruda entre el autor y el espectador.
+            </p>
         </div>
     </section>
 
-    <!-- SECCIÓN BLOG -->
-    <section id="blog" class="max-w-5xl mx-auto px-6 py-20">
-        <div class="mb-10">
-            <h2 class="text-3xl font-bold tracking-tight text-white"><span class="text-blue-400">04.</span> El Cuaderno de Notas</h2>
-            <p class="text-gray-400 text-sm mt-1">Tutoriales, reflexiones y secretos del taller compartidos por Jair Trillo.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <article class="bento-card p-4 rounded-2xl cursor-pointer">
-                <div class="h-40 bg-gray-800 rounded-xl mb-4 flex items-center justify-center text-gray-600 text-xs">[Miniatura Blog 1]</div>
-                <span class="text-xs font-bold text-blue-400 tracking-wider uppercase">Procesos</span>
-                <h3 class="text-xl font-bold mt-2 text-white">Cómo elijo mi paleta de colores para estructurar un proyecto</h3>
-                <p class="text-gray-400 text-sm mt-2">Te enseño el método conceptual que utilizo en mi taller para combinar tonos armónicos...</p>
-            </article>
-
-            <article class="bento-card p-4 rounded-2xl cursor-pointer">
-                <div class="h-40 bg-gray-800 rounded-xl mb-4 flex items-center justify-center text-gray-600 text-xs">[Miniatura Blog 2]</div>
-                <span class="text-xs font-bold text-purple-400 tracking-wider uppercase">Detrás de escena</span>
-                <h3 class="text-xl font-bold mt-2 text-white">Mi experiencia gestionando mi arte de forma independiente</h3>
-                <p class="text-gray-400 text-sm mt-2">Los aciertos, la constancia creativa y los consejos de organización que me sirven...</p>
+    <!-- SECCIÓN 04: BITÁCORA / BLOG (SEO para atraer tráfico de Google) -->
+    <section id="bitacora" class="py-32 px-6 max-w-7xl mx-auto border-t grid-line">
+        <div class="mb-16">
+            <p class="text-xs font-mono text-gray-500 uppercase tracking-widest">04 / Pensamientos</p>
