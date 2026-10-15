@@ -3,152 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jair Trillo — Espacio Expositivo Independiente</title>
-    <!-- Cargamos la infraestructura de diseño oficial -->
+    <title>Jair Trillo — Espacio Conceptual</title>
     <link href="https://cloudflare.com" rel="stylesheet">
     <style>
-        /* ESTÉTICA MAESTRA - NEGRO ABSOLUTO Y MINIMALISMO RADICAL */
-        html { scroll-behavior: smooth; }
-        body { background-color: #000000; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; overflow-x: hidden; }
+        /* INTERFAZ INMERSIVA FIJA */
+        html, body { height: 100%; overflow: hidden; background-color: #050505; color: #f8fafc; font-family: system-ui, -apple-system, sans-serif; }
         
-        /* Tipografías de Impacto */
-        .text-huge { font-size: clamp(2.5rem, 8vw, 6.5rem); line-height: 0.9; font-weight: 900; letter-spacing: -0.04em; }
+        /* Lienzo Abstracto de Fondo Animado */
+        .canvas-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #0b0f19 0%, #1e1b4b 50%, #000000 100%); background-size: 400% 400%; animation: fluidGradient 15s ease infinite; z-index: 1; }
+        @keyframes fluidGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+        /* Capas de Contenido Interactivas (Paneles Flotantes) */
+        .interactive-overlay { position: fixed; inset: 0; z-index: 10; display: flex; flex-col; justify-content: space-between; padding: 2rem; pointer-events: none; }
+        .interactive-overlay * { pointer-events: auto; }
         
-        /* Tarjetas de Diseño y Efecto Cristal */
-        .glass-panel { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-        .art-card { background: #0a0a0a; border: 1px solid #141414; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-        .art-card:hover { border-color: rgba(255, 255, 255, 0.3); transform: translateY(-4px); }
+        /* Paneles de Contenido Desplegables */
+        .slide-panel { position: fixed; inset: 0; z-index: 40; background: rgba(5, 5, 5, 0.75); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); transform: translateY(100%); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); display: flex; align-items: center; justify-content: center; }
+        .slide-panel:target { transform: translateY(0); }
+
+        /* Contenedor de Obra de Arte Abstracta Integrada */
+        .art-canvas-container { position: absolute; top: 25%; left: 5%; right: 5%; bottom: 25%; z-index: 2; display: flex; justify-content: center; align-items: center; }
+        .abstract-artwork { width: 100%; height: 100%; max-width: 800px; max-height: 500px; border: 1px solid rgba(255, 255, 255, 0.1); background: linear-gradient(45deg, #111, #1e1135); box-shadow: 0 30px 60px rgba(0,0,0,0.8); position: relative; overflow: hidden; transition: all 0.5s ease; }
+        .abstract-artwork:hover { border-color: rgba(255,255,255,0.3); transform: scale(1.01); }
         
-        /* Líneas de Guía Estéticas */
-        .grid-line { border-color: rgba(255, 255, 255, 0.05); }
-        
-        /* Elementos que bloquean la copia de imágenes */
-        .protected-img { -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -o-user-select: none; user-select: none; pointer-events: none; }
+        /* Imagen real oculta hasta que pongas una URL válida */
+        .real-image { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; opacity: 0; transition: opacity 0.5s ease; }
+        .real-image[src^="http"] { opacity: 1; }
+
+        .protected { -webkit-user-select: none; user-select: none; pointer-events: none; }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- MENÚ INTEGRADO AL ENTORNO (Se adapta a móvil y laptop solo) -->
-    <nav class="w-full fixed top-0 left-0 z-50 border-b grid-line glass-panel">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="#" class="font-black tracking-widest text-sm uppercase text-white hover:opacity-80 transition">JAIR TRILLO</a>
-            <div class="flex space-x-8 text-xs font-semibold uppercase tracking-wider text-gray-400">
-                <a href="#exposicion" class="hover:text-white transition">Exposición</a>
-                <a href="#encargos" class="hover:text-white transition">Encargos</a>
-                <a href="#manifiesto" class="hover:text-white transition">Manifiesto</a>
-                <a href="#bitacora" class="hover:text-white transition">Bitácora</a>
-            </div>
-        </div>
-    </nav>
+    <!-- LIENZO DE FONDO -->
+    <div class="canvas-bg"></div>
 
-    <!-- INTRODUCCIÓN MONUMENTAL (Obra de Arte por sí sola) -->
-    <header class="min-h-screen flex flex-col justify-center px-6 max-w-7xl mx-auto pt-20">
-        <p class="text-xs uppercase tracking-widest text-gray-500 mb-6 font-mono">// Espacio Expositivo Digital 2026</p>
-        <h1 class="text-huge text-white">
-            CREAR ES UN<br>ACTO DE REBELIÓN.
-        </h1>
-        <p class="mt-8 text-lg md:text-xl text-gray-400 max-w-xl font-light leading-relaxed">
-            Bienvenido al archivo visual de Jair Trillo. Un portafolio conceptual diseñado para albergar colecciones artísticas y desglosar el proceso detrás del lienzo.
-        </p>
-        <div class="mt-12 flex space-x-6">
-            <a href="#exposicion" class="bg-white text-black font-semibold text-xs uppercase tracking-wider px-6 py-4 rounded-none hover:bg-gray-200 transition">Explorar Obras</a>
-            <a href="#encargos" class="border border-gray-700 text-white font-semibold text-xs uppercase tracking-wider px-6 py-4 rounded-none hover:bg-white hover:text-black transition">Adquirir / Encargos</a>
+    <!-- CONTENEDOR CENTRAL: LA EXPOSICIÓN VIRTUAL INDEPENDIENTE -->
+    <div class="art-canvas-container">
+        <div class="abstract-artwork">
+            <!-- La imagen se activa sola al cambiar el atributo src por un enlace web real de tu arte, ocultando el fondo abstracto automáticamente -->
+            <img src="" class="real-image protected" alt="Jair Trillo Artwork">
+            <!-- Aura decorativa interna en lo que no hay imagen instalada -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-purple-500/10 via-transparent to-pink-500/5 mix-blend-screen"></div>
         </div>
-    </header>
+    </div>
 
-    <!-- SECCIÓN 01: EXPOSICIÓN DIGITAL ASIMÉTRICA -->
-    <section id="exposicion" class="py-32 px-6 max-w-7xl mx-auto border-t grid-line">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-4">
-            <div>
-                <p class="text-xs font-mono text-gray-500 uppercase tracking-widest">01 / Curaduría</p>
-                <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mt-2">PIEZAS SELECCIONADAS</h2>
-            </div>
-            <p class="text-gray-400 text-sm max-w-xs font-light">Muestra visual pura. Los contenedores están listos para proyectar tus imágenes mediante enlaces externos sin alterar el diseño.</p>
+    <!-- MARCO INTERACTIVO PERIFÉRICO (Navegación Móvil y Laptop) -->
+    <div class="interactive-overlay">
+        <!-- Esquina Superior: Identidad -->
+        <div class="flex justify-between items-center w-full">
+            <a href="#" class="text-sm font-black tracking-widest text-white uppercase opacity-90">JAIR TRILLO</a>
+            <span class="text-xs font-mono text-gray-500">// Edición Independiente 2026</span>
         </div>
 
-        <!-- Galería Asimétrica Inteligente (Cambia sola según la pantalla) -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-            
-            <!-- Obra Principal (Ocupa mucho espacio en Laptop, se compacta en celular) -->
-            <div class="md:col-span-8 art-card p-4 flex flex-col justify-between group">
-                <div class="w-full bg-[#111] aspect-video flex items-center justify-center text-gray-600 text-xs font-mono overflow-hidden relative">
-                    <!-- Aquí irá tu imagen -->
-                    <span class="group-hover:scale-105 transition-transform duration-700 protected-img text-center p-4">[ Espacio reservado para tu Imagen Principal .jpg / .png ]</span>
-                </div>
-                <div class="mt-6 flex justify-between items-end">
-                    <div>
-                        <h3 class="text-lg font-bold text-white tracking-tight">Estudio Conceptual I</h3>
-                        <p class="text-xs text-gray-500 font-mono mt-1">Técnica Seleccionada — 2026</p>
-                    </div>
-                </div>
+        <!-- Esquina Inferior: Menú de Acceso a Capas -->
+        <div class="flex flex-wrap justify-between items-end w-full pt-4 border-t border-white/5">
+            <p class="text-xs text-gray-400 max-w-xs font-light hidden md:block">Un concepto digital inmersivo para la distribución directa de arte contemporáneo.</p>
+            <div class="flex space-x-6 text-xs font-bold uppercase tracking-widest">
+                <a href="#biografia" class="text-gray-400 hover:text-white transition">El Autor</a>
+                <a href="#bitacora" class="text-gray-400 hover:text-white transition">Bitácora</a>
+                <a href="#adquisicion" class="bg-white text-black px-4 py-2 font-black transition hover:bg-gray-200">Monetizar / Encargos</a>
             </div>
-
-            <!-- Obra Secundaria Vertical (Se adapta sola) -->
-            <div class="md:col-span-4 art-card p-4 flex flex-col justify-between group">
-                <div class="w-full bg-[#111] aspect-[3/4] flex items-center justify-center text-gray-600 text-xs font-mono overflow-hidden">
-                    <span class="group-hover:scale-105 transition-transform duration-700 protected-img text-center p-4">[ Imagen Vertical .jpg ]</span>
-                </div>
-                <div class="mt-6">
-                    <h3 class="text-sm font-bold text-white uppercase tracking-wider">Estudio de Composición II</h3>
-                    <p class="text-xs text-gray-500 font-mono mt-1">Archivo de Taller</p>
-                </div>
-            </div>
-
         </div>
-    </section>
+    </div>
 
-    <!-- SECCIÓN 02: ADQUISICIONES Y ENCARGOS MONETIZABLES -->
-    <section id="encargos" class="py-32 px-6 max-w-7xl mx-auto border-t grid-line">
-        <p class="text-xs font-mono text-gray-500 uppercase tracking-widest mb-2">02 / Economía Creativa</p>
-        <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white mb-16">ADQUISICIONES & ENCARGOS</h2>
+    <!-- PANELES DE CONTENIDO DESPLEGABLES (Sin romper la pantalla fija) -->
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            <!-- Bloque Monetización Directa (WhatsApp) -->
-            <div class="art-card p-8 flex flex-col justify-between" style="border-left: 3px solid #ffffff;">
-                <div>
-                    <h3 class="text-xl font-bold text-white tracking-tight">Proyectos a Medida (Comisiones)</h3>
-                    <p class="text-gray-400 text-sm mt-4 font-light leading-relaxed">
-                        Abro convocatorias limitadas para desarrollar piezas exclusivas, portadas conceptuales, colaboraciones con marcas o dirección artística bajo tu concepto original.
-                    </p>
-                </div>
-                <!-- Recuerda cambiar el número 5210000000000 por el tuyo en el futuro -->
-                <a href="https://wa.me" target="_blank" class="mt-12 inline-block text-center bg-white text-black font-bold text-xs uppercase tracking-widest py-4 hover:bg-gray-200 transition">
-                    Iniciar Consulta por WhatsApp →
-                </a>
-            </div>
-
-            <!-- Bloque Catálogo Físico -->
-            <div class="art-card p-8 flex flex-col justify-between">
-                <div>
-                    <h3 class="text-xl font-bold text-white tracking-tight">Catálogo de Piezas Originales</h3>
-                    <p class="text-gray-400 text-sm mt-4 font-light leading-relaxed">
-                        Si deseas coleccionar alguna de las piezas físicas disponibles en el taller o solicitar láminas seriadas firmadas con envíos internacionales certificados, puedes ponerte en contacto directo.
-                    </p>
-                </div>
-                <a href="mailto:tu-correo@ejemplo.com" class="mt-12 inline-block text-center border border-gray-700 text-white font-bold text-xs uppercase tracking-widest py-4 hover:border-white transition">
-                    Solicitar Catálogo en PDF
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SECCIÓN 03: MANIFIESTO (Gana Carisma de forma automática) -->
-    <section id="manifiesto" class="py-32 px-6 bg-[#050505] border-t grid-line">
-        <div class="max-w-4xl mx-auto text-center">
-            <p class="text-xs font-mono text-gray-500 uppercase tracking-widest mb-6">03 / Filosofía</p>
-            <h2 class="text-2xl md:text-4xl font-extrabold tracking-tight text-white mb-8 leading-snug">
-                "El arte no responde ante nadie. Existe para documentar las verdades que las palabras no pueden sostener."
-            </h2>
-            <div class="w-12 h-0.5 bg-white mx-auto mb-8"></div>
-            <p class="text-gray-400 text-sm font-light max-w-xl mx-auto leading-relaxed">
-                Soy <span class="text-white font-medium">Jair Trillo</span>. Mi enfoque conceptual busca disolver las barreras comerciales tradicionales para construir una relación directa, transparente y cruda entre el autor y el espectador.
+    <!-- PANEL 1: BIOGRAFÍA / MANIFIESTO -->
+    <div id="biografia" class="slide-panel">
+        <div class="max-w-2xl px-6 text-center">
+            <a href="#" class="absolute top-8 right-8 text-sm font-mono text-gray-400 hover:text-white">✕ CERRAR</a>
+            <h2 class="text-xs font-mono uppercase tracking-widest text-pink-400 mb-6">// Detrás del lienzo</h2>
+            <p class="text-2xl md:text-3xl font-light text-white leading-relaxed mb-6">
+                "El arte no responde ante nadie. Existe para documentar las verdades que las palabras comunes no pueden sostener."
+            </p>
+            <p class="text-gray-400 text-sm leading-relaxed font-light">
+                Espacio conceptual gestionado de manera autónoma por Jair Trillo. Orientado a entablar una relación cruda, directa y transparente entre la obra y el coleccionista, eliminando intermediarios corporativos del circuito tradicional.
             </p>
         </div>
-    </section>
+    </div>
 
-    <!-- SECCIÓN 04: BITÁCORA / BLOG (SEO para atraer tráfico de Google) -->
-    <section id="bitacora" class="py-32 px-6 max-w-7xl mx-auto border-t grid-line">
-        <div class="mb-16">
-            <p class="text-xs font-mono text-gray-500 uppercase tracking-widest">04 / Pensamientos</p>
+    <!-- PANEL 2: BITÁCORA / BLOG -->
+    <div id="bitacora" class="slide-panel">
+        <div class="max-w-4xl w-full px-6 grid grid-cols-1 md:grid-cols-2 gap-12 relative">
+            <a href="#" class="absolute -top-12 right-6 text-sm font-mono text-gray-400 hover:text-white">✕ CERRAR</a>
+            
+            <article class="border border-white/10 p-6 background: rgba(0,0,0,0.4)">
+                <span class="text-xs font-mono text-purple-400 uppercase tracking-wider">Vol. I — Procesos</span>
+                <h3 class="text-xl font-bold text-white mt-2 mb-3">Sintaxis visual y entornos cromáticos</h3>
+                <p class="text-gray-400 text-sm font-light leading-relaxed">Un desglose técnico enfocado en cómo la psicología del color define la dirección conceptual de una pieza antes de su ejecución material en el taller.</p>
+            </article>
+
+            <article class="border border-white/10 p-6 background: rgba(0,0,0,0.4)">
+                <span class="text-xs font-mono text-blue-400 uppercase tracking-wider">Vol. II — Filosofía</span>
+                <h3 class="text-xl font-bold text-white mt-2 mb-3">La descentralización del circuito comercial</h3>
+                <p class="text-gray-400 text-sm font-light leading-relaxed">Reflexión crítica acerca del papel de las plataformas digitales independientes en la sustentabilidad del arte contemporáneo.</p>
+            </article>
+        </div>
+    </div>
+
+    <!-- PANEL 3: ADQUISICIÓN / MONETIZACIÓN DIRECTA -->
+    <div id="adquisicion" class="slide-panel">
+        <div class="max-w-3xl w-full px-6 grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+            <a href="#" class="absolute -top-12 right-6 text-sm font-mono text-gray-400 hover:text-white">✕ CERRAR</a>
+            
+            <div class="border border-white/10 p-8 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-white tracking-wider uppercase">Proyectos a Medida</h3>
+                    <p class="text-gray-400 text-xs mt-4 font-light leading-relaxed">Gestión de encargos privados, comisiones exclusivas y dirección artística personalizada bajo especificaciones y conceptos del cliente.</p>
+                </div>
+                <!-- Cambia el número de teléfono por el tuyo en el futuro de forma directa en este enlace -->
+                <a href="https://wa.me" target="_blank" class="mt-8 text-center bg-white text-black text-xs font-bold uppercase tracking-widest py-3 hover:bg-gray-200 transition">Canal WhatsApp →</a>
+            </div>
+
+            <div class="border border-white/10 p-8 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-white tracking-wider uppercase">Obra Física Original</h3>
+                    <p class="text-gray-400 text-xs mt-4 font-light leading-relaxed">Acceso preferencial al catálogo privado de piezas tangibles disponibles en inventario con sistemas de envío protegido a nivel internacional.</p>
+                </div>
+                <a href="mailto:tu-correo@ejemplo.com" class="mt-8 text-center border border-white/30 text-white text-xs font-bold uppercase tracking-widest py-3 hover:border-white transition">Solicitar Catálogo PDF</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Bloqueo estricto contra copia de recursos visuales
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG' || e.target.classList.contains('protected')) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
